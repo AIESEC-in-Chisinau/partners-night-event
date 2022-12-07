@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <title>Partners Night Event</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    
+    <meta name="apple-mobile-web-app-capable" content="yes">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -14,6 +14,7 @@
   </head>
   <body class="container">
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script type="text/javascript" src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
     <h1 class="page-title">
       AIESEC IN CHISINAU
     </h1>
@@ -50,7 +51,7 @@
       <div id="Page3" style="display:none">
 
 
-        <video id="preview"></video>
+        <video id="preview" class="video-back" playsinline></video>
         <div class="btb-group btb-group-toggle mb-5" data-toggle="buttons">
           <label class="btn btn-primary active">
             <input type="radio" name="options" value="1" autocomplete="off" checked="checked"/>Front Camera
