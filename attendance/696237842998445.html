@@ -1,0 +1,113 @@
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <link href="https://fonts.googleapis.com/css2?family=Outfit&display=swap" rel="stylesheet">  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link href="style.css" rel="stylesheet"> 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+  <title>Frontend Mentor | QR code component</title>
+
+</head>
+<body>
+  <style>
+    body{
+    font-family: 'Outfit', sans-serif;
+    background-color:hsl(212, 45%, 89%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    
+}
+h1 {
+    font-size: 20px;
+    font-weight: 700;
+}
+h2 {
+    font-size: 15px;
+    font-weight: 540;
+    margin-top: -10px;
+}
+h3 {
+    font-size: 10px;
+    font-weight:400;
+    color:hsl(220, 15%, 55%);
+}
+
+.container {
+    max-width: 252px;
+    margin:0 auto;
+    
+}
+
+.card{
+    background-color: hsl(0, 0%, 100%);
+    box-shadow: 3px 3px 6px hsl(220deg 35% 55%);
+    padding: 18px;
+    border-radius: 17px;
+    text-align: center;
+    margin: 0 1em;
+    transition: transform .2s ease-in;
+}
+
+.card:hover{
+    transform: scale(1.1); 
+}
+
+.card img{
+    width: 100%;
+    border-radius: 8px;
+}
+
+.attribution { 
+    padding-top:50px;
+    font-size: 11px;
+    text-align: center; 
+    
+}
+
+.attribution a {
+    color: hsl(228, 45%, 44%); 
+    text-decoration:none !important;
+    
+}
+.contact-links {
+    padding-top:20px;
+    display: flex;
+    text-align: center; 
+}
+
+.contact-links a{
+    margin:5px; 
+}
+.contact-details {
+    transition: transform 0.3s ease-out;
+}
+  
+.contact-details:hover {
+    transform: translateY(4px);
+  }
+  
+  </style>
+<div class="container">
+<div class="card">
+  <img src="https://i.ibb.co/0jfZFgK/image-qr-code.png" alt='qr-code'>
+<h1>Company Name</h1>
+<h2>Surname Name</h2>
+<h3>location: ----------
+  <br/>
+  time: ------
+  <br/> <br/>
+  Scan the QR code at entrance to confirm attendance
+</h3>  
+</div>
+  <div class="attribution">
+   
+      <br>AIESEC în Chișinău  </br>
+        <a href="https://www.facebook.com/aiesec.in.chisinau">Facebook</a> |
+      <a href="https://www.instagram.com/aiesec_in_chisinau/">Instagram</a>
+    </p>
+    
+   
+    
+  </div>
+</body>
