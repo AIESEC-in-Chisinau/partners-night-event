@@ -31,6 +31,7 @@ function show(shown, hidden) {
 
     
     var scanner = new Instascan.Scanner({
+        video : { facingMode: "environment" },
         video: document.getElementById("preview"),
         scanPeriod: 5,
         mirror: false
