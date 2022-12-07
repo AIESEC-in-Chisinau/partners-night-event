@@ -21,7 +21,7 @@ function show(shown, hidden) {
 
   function loginpassed (){
     console.log("looged in");
-    if(htmlEncode($("#pass").val())=="111"){
+    if(htmlEncode($("#pass").val())=="1111"){
         return show('Page2','Page1');
     }
   }
@@ -29,13 +29,30 @@ function show(shown, hidden) {
 
   function goqr(){
 
+
+
+
+    
+   
+
+
+
+
+
+
+
+
     
     var scanner = new Instascan.Scanner({
         video : { facingMode: "environment" },
         video: document.getElementById("preview"),
         scanPeriod: 5,
-        mirror: false
+        mirror: true
       });
+
+      
+    
+      
       scanner.addListener("scan", function (content) {
        console.log(content);
 
@@ -80,10 +97,12 @@ function show(shown, hidden) {
         
         //window.location.href=content;
       });
+
+      
       Instascan.Camera.getCameras()
         .then(function (cameras) {
           if (cameras.length > 0) {
-            scanner.start(cameras[0]);
+            scanner.start(cameras[cameras.length - 1]);
             $('[name="options"]').on("change", function () {
               if ($(this).val() == 1) {
                 if (cameras[0] != "") {
