@@ -31,8 +31,7 @@ function show(shown, hidden) {
 
     
     var scanner = new Instascan.Scanner({
-        video:  document.getElementById("preview"),
-       
+        video: document.getElementById("preview"),
         scanPeriod: 5,
         mirror: false
       });
@@ -108,29 +107,9 @@ function show(shown, hidden) {
           console.error(e);
           alert(e);
         });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
     return show('Page3','Page2');
 
    
-
-
-
-
   }
 
 
