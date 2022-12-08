@@ -32,84 +32,66 @@ function show(shown, hidden) {
 
 
 
-    
-   
+    let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
+  Instascan.Camera.getCameras().then(cameras => {
+    scanner.camera = cameras[cameras.length - 1];
+    scanner.start();
+  }).catch(e => console.error(e));
+
+  scanner.addListener('scan', content => {
+    console.log(content);
 
 
 
+    console.log(content);
 
 
 
+    $(document).ready(function () {
 
+     $.getJSON("https://638e3526aefc455fb2b829e2.mockapi.io/presence", 
+         function (data) {
+             
+             $.each(data, function (key, value) {
+                 if(content==value.id){
+                 value.present = true;
 
-    
-    var scanner = new Instascan.Scanner({
-        video : { facingMode: "environment" },
-        video: document.getElementById("preview"),
-        scanPeriod: 5,
-        mirror: true
-      });
+                 datachanger.companianame= value.companianame;
+                 datachanger.name=value.name;
+                 datachanger.present=value.present;
+                 datachanger.id=value.id;
 
-      
-    
-      
-      scanner.addListener("scan", function (content) {
-       console.log(content);
-
-
-
-       $(document).ready(function () {
-   
-        $.getJSON("https://638e3526aefc455fb2b829e2.mockapi.io/presence", 
-            function (data) {
-                
-                $.each(data, function (key, value) {
-                    if(content==value.id){
-                    value.present = true;
-
-                    datachanger.companianame= value.companianame;
-                    datachanger.name=value.name;
-                    datachanger.present=value.present;
-                    datachanger.id=value.id;
-
-                    pname= value.name;
-                    pcom= value.companianame;
-                    console.log(pname,pcom);
-                    document.getElementById("welcome1").innerHTML = pname;
-                    document.getElementById("welcome2").innerHTML = pcom;
-                    }
-            });
-            axios.put(`https://638e3526aefc455fb2b829e2.mockapi.io/presence/${datachanger.id}`, datachanger);
-      });
-    });
-    console.log(datachanger);
-    
-   
-
-
-
-        show('Page5','Page3');
-       
+                 pname= value.name;
+                 pcom= value.companianame;
+                 console.log(pname,pcom);
+                 document.getElementById("welcome1").innerHTML = pname;
+                 document.getElementById("welcome2").innerHTML = pcom;
+                 }
+         });
+         axios.put(`https://638e3526aefc455fb2b829e2.mockapi.io/presence/${datachanger.id}`, datachanger);
+   });
+ });
+ console.log(datachanger);
  
 
 
-        scanner.stop();
-        
-        //window.location.href=content;
-      });
 
-      
-      Instascan.Camera.getCameras()
-        .then(function (cameras) {
-          
-            scanner.start(cameras[cameras.length - 1]);
-           
-      
-        })
-        .catch(function (e) {
-          console.error(e);
-          alert(e);
-        });
+
+     show('Page5','Page3');
+    
+
+
+
+     scanner.stop();
+
+
+
+  });
+   
+
+
+
+
     return show('Page3','Page2');
 
    
