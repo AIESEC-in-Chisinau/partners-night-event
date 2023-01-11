@@ -1,5 +1,8 @@
+var apilink="https://63beb7e0585bedcb36b4dedf.mockapi.io/partnersNight";
+
+
 var datachanger = {
-    companianame: '',
+
     name: '',
     present: '',
     id: '',
@@ -49,26 +52,26 @@ function show(shown, hidden) {
 
     $(document).ready(function () {
 
-     $.getJSON("https://638e3526aefc455fb2b829e2.mockapi.io/presence", 
+     $.getJSON(apilink, 
          function (data) {
              
              $.each(data, function (key, value) {
                  if(content==value.id){
                  value.present = true;
 
-                 datachanger.companianame= value.companianame;
+                 
                  datachanger.name=value.name;
                  datachanger.present=value.present;
                  datachanger.id=value.id;
 
                  pname= value.name;
-                 pcom= value.companianame;
-                 console.log(pname,pcom);
+                 
+                 console.log(pname);
                  document.getElementById("welcome1").innerHTML = pname;
-                 document.getElementById("welcome2").innerHTML = pcom;
+                
                  }
          });
-         axios.put(`https://638e3526aefc455fb2b829e2.mockapi.io/presence/${datachanger.id}`, datachanger);
+         axios.put(apilink+`${datachanger.id}`, datachanger);
    });
  });
  console.log(datachanger);
@@ -106,19 +109,18 @@ function show(shown, hidden) {
     
     $(document).ready(function () {
    
-        $.getJSON("https://638e3526aefc455fb2b829e2.mockapi.io/presence", 
+        $.getJSON(apilink, 
             function (data) {
           var student = '';
           console.log(data);
-          student+=" <tr> <th>Company Name</th>  <th>Atendance Name</th>  <th>Atendance</th> </tr>";
+          student+=" <tr>  <th>Atendance </th>  <th>Atendance</th> </tr>";
           count++;
           $.each(data, function (key, value) {
  
             //CONSTRUCTION OF ROWS HAVING
             // DATA FROM JSON OBJECT
             student += '<tr>';
-            student += '<td>' +
-              value.companianame + '</td>';
+            
     
             student += '<td>' +
               value.name + '</td>';
