@@ -1,0 +1,183 @@
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <link href="https://fonts.googleapis.com/css2?family=Outfit&display=swap" rel="stylesheet">  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+  <title>Partners Night Event</title>
+
+</head>
+<body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  
+  
+  <style>
+    body{
+    font-family: 'Outfit', sans-serif;
+    background-color:hsl(212, 45%, 89%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    
+}
+h1 {
+    font-size: 20px;
+    font-weight: 700;
+}
+h2 {
+    font-size: 15px;
+    font-weight: 540;
+    margin-top: -10px;
+}
+h3 {
+    font-size: 10px;
+    font-weight:400;
+    color:hsl(220, 15%, 55%);
+}
+
+.container {
+    max-width: 252px;
+    margin:0 auto;
+    
+}
+
+.card{
+    background-color: hsl(0, 0%, 100%);
+    box-shadow: 3px 3px 6px hsl(220deg 35% 55%);
+    padding: 18px;
+    border-radius: 17px;
+    text-align: center;
+    margin: 0 1em;
+    transition: transform .2s ease-in;
+  
+}
+
+.card:hover{
+    transform: scale(1.1); 
+}
+
+.card img{
+   height: 120px;
+   width: 120px;
+   margin-top: 32px;
+    
+}
+
+.attribution { 
+    padding-top:50px;
+    font-size: 11px;
+    text-align: center; 
+    
+}
+
+.attribution a {
+    color: hsl(228, 45%, 44%); 
+    text-decoration:none !important;
+    
+}
+.contact-links {
+    padding-top:20px;
+    display: flex;
+    text-align: center; 
+}
+
+.contact-links a{
+    margin:5px; 
+}
+.contact-details {
+    transition: transform 0.3s ease-out;
+}
+  
+.contact-details:hover {
+    transform: translateY(4px);
+  }
+  
+.spcard{
+  background-image: url("./qr_bg.png");
+  background-size:cover;
+  background-repeat:no-repeat;
+  background-position: center;
+  width: 100%;
+  height: 184px;
+  border-radius: 8px;
+}
+  </style>
+<div class="container">
+  <div id="toshowdiv" class="card">
+    <div class="spcard">
+      <img  src="./qrcodes/694707856010466.png" alt='qr-code'>
+    </div>
+      
+    <h1>IG Team</h1>
+    
+    <h3><b>location:</b> Institutul Muncii, str. Zimbrului 10
+      <br/>
+      <b>time:</b> 20 ian 2023, 15:00
+      <br/> <br/>
+      Scan the QR code at entrance to confirm attendance
+    </h3>  
+    </div>
+    <div id="tohidediv" class="card">
+     
+      <h1 style="  margin-bottom: 15px; color:#3461FD;">Welcome</h1>
+      
+      <h2 style="  margin-bottom: 35px;"">IG Team</h2>
+      
+      <h3><b>location:</b> Institutul Muncii, str. Zimbrului 10
+        <br/>
+        <b>time:</b> 20 ian 2023, 15:00
+        <br/> <br/>
+        Scan the QR code at entrance to confirm attendance
+      </h3>  
+      </div>
+  <div class="attribution">
+   
+      <br>AIESEC în Chișinău  </br>
+        <a href="https://www.facebook.com/aiesec.in.chisinau">Facebook</a> |
+      <a href="https://www.instagram.com/aiesec_in_chisinau/">Instagram</a>
+    </p>
+   
+   
+    
+  </div>
+
+
+
+  <script>
+    var qrapilink="https://63beb7e0585bedcb36b4dedf.mockapi.io/partnersNight";
+
+
+
+    var qrlink='694707856010466';
+
+
+document.getElementById("tohidediv").style.display='none';
+
+
+    function checktime(){
+     
+
+$.getJSON(qrapilink, 
+           function (data) {
+         $.each(data, function (key, value) {
+             if(value.id==qrlink){
+                 if(value.present==true){
+                  document.getElementById("tohidediv").style.display='block';
+                  document.getElementById("toshowdiv").style.display='none';
+                 }
+             }
+         });
+       });
+
+
+    }
+    setInterval(checktime,500);
+
+
+
+   </script>
+</body>
