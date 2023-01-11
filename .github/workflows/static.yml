@@ -21,6 +21,13 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  build:
+    env:
+      apilink: ${{secrets.apilink}}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        run echo  ${{env.apilink}}
   # Single deploy job since we're just deploying
   deploy:
     environment:
@@ -40,3 +47,5 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
+   
+    
