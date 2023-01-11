@@ -71,7 +71,9 @@ function show(shown, hidden) {
                 
                  }
          });
-         axios.put(apilink+`${datachanger.id}`, datachanger);
+         var axioschandel =apilink+"/"+datachanger.id;
+         console.log(axioschandel);
+         axios.put(axioschandel, datachanger);
    });
  });
  console.log(datachanger);
@@ -125,10 +127,17 @@ function show(shown, hidden) {
     
             student += '<td>' +
               value.name + '</td>';
-    
-            student += '<td>' +
-              value.present + '</td>';
-    
+
+
+
+              if(value.present==true){
+            student += '<td style="background-color:lime;text-align:center;">' +
+              "prezent" + '</td>';
+            }
+            else{
+              student += '<td style="background-color:red;text-align:center;">' +
+              "absent" + '</td>';
+            }
               idd= value.id;
             student += '</tr>';
             
