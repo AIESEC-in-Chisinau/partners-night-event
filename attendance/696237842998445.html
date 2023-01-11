@@ -5,7 +5,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Outfit&display=swap" rel="stylesheet">  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   <link href="style.css" rel="stylesheet"> 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
-  <title>Frontend Mentor | QR code component</title>
+  <title>Partners Night Event</title>
 
 </head>
 <body>
@@ -47,6 +47,7 @@ h3 {
     text-align: center;
     margin: 0 1em;
     transition: transform .2s ease-in;
+  
 }
 
 .card:hover{
@@ -54,8 +55,10 @@ h3 {
 }
 
 .card img{
-    width: 100%;
-    border-radius: 8px;
+   height: 120px;
+   width: 120px;
+   margin-top: 32px;
+    
 }
 
 .attribution { 
@@ -87,15 +90,27 @@ h3 {
     transform: translateY(4px);
   }
   
+.spcard{
+  background-image: url("./qr_bg.png");
+  background-size:cover;
+  background-repeat:no-repeat;
+  background-position: center;
+  width: 100%;
+  height: 184px;
+  border-radius: 8px;
+}
   </style>
 <div class="container">
 <div class="card">
-  <img src="https://raw.githubusercontent.com/AIESEC-in-Chisinau/partners-night-event/main/attendance/qrcodes/696237842998445.jpg" alt='qr-code'>
-<h1>Company Name</h1>
-<h2>Surname Name</h2>
-<h3>location: ----------
+<div class="spcard">
+  <img  src="./qrcodes/696237842998445.png" alt='qr-code'>
+</div>
+  
+<h1>VictoriaBank</h1>
+
+<h3><b>location:</b> Institutul Muncii, str. Zimbrului 10
   <br/>
-  time: ------
+  <b>time:</b> 20 ian 2023, 15:00
   <br/> <br/>
   Scan the QR code at entrance to confirm attendance
 </h3>  
