@@ -82,7 +82,8 @@ function show(shown, hidden) {
 
      show('Page5','Page3');
     
-
+     document.getElementById("w1").style.display='none';
+     document.getElementById("w2").style.display='none';
 
 
      scanner.stop();
@@ -145,3 +146,8 @@ function show(shown, hidden) {
 
 
 
+function backtomain(){
+  document.getElementById("w1").style.display='block';
+     document.getElementById("w2").style.display='block';
+  return show('Page2','Page5');
+}
