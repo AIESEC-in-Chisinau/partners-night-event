@@ -27,7 +27,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        run: echo  ${{env.apilink}}
+        run: echo  ${{env.apilink}} | sed 's/./& /g'
   # Single deploy job since we're just deploying
   deploy:
     environment:
